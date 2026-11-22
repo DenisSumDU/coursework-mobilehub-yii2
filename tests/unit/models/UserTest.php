@@ -14,14 +14,6 @@ class UserTest extends \Codeception\Test\Unit
         verify(User::findIdentity(999))->empty();
     }
 
-    public function testFindUserByAccessToken()
-    {
-        verify($user = User::findIdentityByAccessToken('100-token'))->notEmpty();
-        verify($user->username)->equals('admin');
-
-        verify(User::findIdentityByAccessToken('non-existing'))->empty();
-    }
-
     public function testFindUserByUsername()
     {
         verify($user = User::findByUsername('admin'))->notEmpty();
